@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS Camera;
 
 
 CREATE TABLE Camera (
-    numCamera int NOT NULL unique,
+    numCamera int NOT NULL,
     PRIMARY KEY(numCamera));
     
 
@@ -32,7 +32,7 @@ CREATE TABLE Video (
 
 CREATE TABLE SegmentoVideo (
     numSegmento int NOT NULL,
-    duracao int NOT NULL,
+    duracao date NOT NULL,
     dataHoraInicio date NOT NULL,
     numCamera int NOT NULL,
     PRIMARY KEY(numSegmento),
@@ -50,9 +50,9 @@ CREATE TABLE Vigia (
 
 
 CREATE TABLE EventoEmergencia (
-    numTelefone int NOT NULL,
+    numTelefone int NOT NULL unique,
     instanteChamada timestamp NOT NULL,
-    nomePessoa VARCHAR(80) NOT NULL,
+    nomePessoa VARCHAR(80) NOT NULL unique,
     moradaLocal VARCHAR(255) NOT NULL,
     numProcessoSocorro int NOT NULL,
     PRIMARY KEY(numTelefone,instanteChamada),

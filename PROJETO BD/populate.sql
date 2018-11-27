@@ -1,220 +1,147 @@
-// FAZ PARTE DO PROJETO ANTIFO
+insert into Local values ('Arroios');
+insert into Local values ('Azeitão');
+insert into Local values ('Benfica');
+insert into Local values ('Amadora');
+insert into Local values ('Almada');
+insert into Local values ('Sintra');
+insert into Local values ('Algés');
+insert into Local values ('Oeiras');
+insert into Local values ('Cascais');
+insert into Local values ('Rossio');
+insert into Local values ('Alcochete');	
 
+-- Camera
 
-insert into edificio values ('IST');
-insert into edificio values ('FEUP');
-insert into edificio values ('Catolica');
-insert into edificio values ('ISEL');
+insert into Camera values('89056');
+insert into Camera values('02521');
+insert into Camera values('24898');
+insert into Camera values('39476');
+insert into Camera values('49804');
+insert into Camera values('91764');
+insert into Camera values('71918');
+insert into Camera values('45671');
 
--- Senhorios
-insert into user values ('123456719', 'Jorge Poeta', '992323123');
-insert into user values ('113056729', 'António Martins', '992333123');
-insert into user values ('133956139', 'David Manuel', '992323124');
-insert into user values ('143856248', 'Nuno Sousa', '992323125');
--- Arrendatarios
-insert into user values ('153756357', 'Armando Sousa', '992323126');
-insert into user values ('163656466', 'Gonçalo Santos', '992323127');
-insert into user values ('173516575', 'Alberto Silva', '992323128');
-insert into user values ('183426684', 'Rubim Guerreiro', '992323129');
-insert into user values ('193336793', 'Anacleto Vieira', '993323123');
-insert into user values ('103246782', 'Luis Raposo', '995323123');
-insert into user values ('120456781', 'Rui Vitória', '997323123');	
+-- Video
 
-insert into fiscal values (1, 'ASAE');
-insert into fiscal values (2, 'CIA');
-insert into fiscal values (3, 'PJ');
-insert into fiscal values (4, 'FBI');
+insert into Video values ('01/01/2018 10:43:41', '01/01/2018 12:40:32', '89056');
+insert into Video values ('02/01/2018 02:53:21', '02/01/2018 04:55:12', '02521');
+insert into Video values ('05/01/2018 01:13:15', '05/01/2018 03:30:50', '24898');
+insert into Video values ('02/02/2018 11:33:25', '02/02/2018 13:00:19', '39476');
+insert into Video values ('04/02/2018 12:23:42', '04/02/2018 14:00:01', '49804');
+insert into Video values ('10/03/2018 08:33:03', '10/03/2018 10:50:49', '91764');
+insert into Video values ('03/04/2018 10:13:46', '03/04/2018 13:54:30', '71918');
+insert into Video values ('02/05/2018 18:10:05', '02/05/2018 20:04:53', '45671');
 
-insert into alugavel values ('IST', 'Central', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('IST', 'DEI', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('IST', 'Lab1', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('IST', 'Lab2', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('IST', 'Lab3', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('IST', 'DEG', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('IST', 'DEQ', 'http://lorempixel.com/400/200/');
+-- SegmentoVideo
 
-insert into alugavel values ('FEUP', 'Central', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('FEUP', 'DEI', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('FEUP', 'DEG', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('FEUP', 'DEQ', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('FEUP', 'Lab1', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('FEUP', 'Lab2', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('FEUP', 'Lab3', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('FEUP', 'Lab4', 'http://lorempixel.com/400/200/');
+insert into SegmentoVideo values ('7123', '00:30:00' ,'01/01/2018 10:43:41', '89056');
+insert into SegmentoVideo values ('4321', '00:30:00' ,'02/01/2018 02:53:21', '02521');
+insert into SegmentoVideo values ('8723', '00:30:00' ,'05/01/2018 01:13:15', '24898');
+insert into SegmentoVideo values ('3461', '00:30:00' ,'02/02/2018 11:33:25', '39476');
+insert into SegmentoVideo values ('6752', '00:30:00' ,'04/02/2018 12:23:42', '49804');
+insert into SegmentoVideo values ('3843', '00:30:00' ,'10/03/2018 08:33:03', '91764');
+insert into SegmentoVideo values ('2674', '00:30:00' ,'03/04/2018 10:13:46', '71918');
+insert into SegmentoVideo values ('1235', '00:30:00' ,'02/05/2018 18:10:05', '45671');
 
-insert into alugavel values ('Catolica', 'Central', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('Catolica', 'DMKT', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('Catolica', 'Sala1', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('Catolica', 'Sala2', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('Catolica', 'DG', 'http://lorempixel.com/400/200/');
+--	Vigia
 
-insert into alugavel values ('ISEL', 'Central', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('ISEL', 'DEI', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('ISEL', 'DEG', 'http://lorempixel.com/400/200/');
-insert into alugavel values ('ISEL', 'DEQ', 'http://lorempixel.com/400/200/');
+insert into Vigia values ('Arroios','89056');
+insert into Vigia values ('Azeitão','02521');
+insert into Vigia values ('Benfica','24898');
+insert into Vigia values ('Oeiras','39476');
+insert into Vigia values ('Almada','49804');
+insert into Vigia values ('Cascais','91764');
+insert into Vigia values ('Algés','71918');
+insert into Vigia values ('Rossio','45671');
 
-insert into arrenda values ('IST', 'Central', '123456719');
-insert into arrenda values ('IST', 'DEI', '123456719');
-insert into arrenda values ('IST', 'Lab1', '123456719');
-insert into arrenda values ('IST', 'Lab2', '123456719');
-insert into arrenda values ('IST', 'Lab3', '123456719');
-insert into arrenda values ('IST', 'DEG', '123456719');
-insert into arrenda values ('IST', 'DEQ', '123456719');
+-- EventoEmergencia
 
-insert into arrenda values ('FEUP', 'Central', '113056729');
-insert into arrenda values ('FEUP', 'DEI', '113056729');
-insert into arrenda values ('FEUP', 'DEG', '113056729');
-insert into arrenda values ('FEUP', 'DEQ', '113056729');
-insert into arrenda values ('FEUP', 'Lab1', '113056729');
-insert into arrenda values ('FEUP', 'Lab2', '113056729');
-insert into arrenda values ('FEUP', 'Lab3', '113056729');
-insert into arrenda values ('FEUP', 'Lab4', '113056729');
+insert into EventoEmergencia values ('912345678','01/01/2018 10:43:41','Maria Madelena','Lisboa','001');
+insert into EventoEmergencia values ('912343612','02/01/2018 02:53:21','Carlos Manuel','Algés','0002');
+insert into EventoEmergencia values ('913255128','05/01/2018 01:13:15','Isabel Garcia','Azeitão','003');
+insert into EventoEmergencia values ('912342412','02/02/2018 11:33:25','Francisco Reis','Lisboa','004');
+insert into EventoEmergencia values ('965234523','04/02/2018 12:23:42','Tiago Santos','Cascais','001');
+insert into EventoEmergencia values ('921351233','05/02/2018 10:20:42','João Torres','Azeitão','002');
+insert into EventoEmergencia values ('916134543','10/03/2018 08:33:03','Francisco Santos','Benfica','003');
+insert into EventoEmergencia values ('932512344','11/03/2018 09:17:09','Yuri Dagot','Arroios','003');
+insert into EventoEmergencia values ('923462112','03/04/2018 10:13:46','Bruno de Carvalho','Alcochete','004');
+insert into EventoEmergencia values ('923465234','02/05/2018 18:10:05','Susana Rosa','Sintra','001');
 
-insert into arrenda values ('Catolica', 'Central', '133956139');
-insert into arrenda values ('Catolica', 'DMKT', '133956139');
-insert into arrenda values ('Catolica', 'Sala1', '133956139');
-insert into arrenda values ('Catolica', 'Sala2', '133956139');
-insert into arrenda values ('Catolica', 'DG', '133956139');
+-- ProcessoSocorro
 
-insert into arrenda values ('ISEL', 'Central', '143856248');
-insert into arrenda values ('ISEL', 'DEI', '143856248');
-insert into arrenda values ('ISEL', 'DEG', '143856248');
-insert into arrenda values ('ISEL', 'DEQ', '143856248');
+insert into ProcessoSocorro values ('001');
+insert into ProcessoSocorro values ('002');
+insert into ProcessoSocorro values ('003');
+insert into ProcessoSocorro values ('004');
 
-insert into fiscaliza values (1, 'IST', 'Central');
-insert into fiscaliza values (1, 'IST', 'DEI');
-insert into fiscaliza values (1, 'IST', 'Lab1');
-insert into fiscaliza values (1, 'FEUP', 'Central');
-insert into fiscaliza values (2, 'FEUP', 'Central');
-insert into fiscaliza values (2, 'FEUP', 'DEQ');
-insert into fiscaliza values (3, 'FEUP', 'DEI');
-insert into fiscaliza values (4, 'Catolica', 'Central');
-insert into fiscaliza values (2, 'Catolica', 'DG');
+-- Entidade Meio
 
-insert into espaco values ('IST', 'Central');
-insert into espaco values ('IST', 'DEI');
-insert into espaco values ('IST', 'DEG');
-insert into espaco values ('IST', 'DEQ');
+insert into EntidadeMeio values ('Bombeiros');
+insert into EntidadeMeio values ('Exército');
+insert into EntidadeMeio values ('Força Aérea');
+insert into EntidadeMeio values ('Polícia');
 
-insert into posto values ('IST', 'Lab1', 'DEI');
-insert into posto values ('IST', 'Lab2', 'DEI');
-insert into posto values ('IST', 'Lab3', 'DEI');
+-- Meio
 
-insert into espaco values ('FEUP', 'Central');
-insert into espaco values ('FEUP', 'DEI');
-insert into espaco values ('FEUP', 'DEG');
-insert into espaco values ('FEUP', 'DEQ');
+insert into Meio values ('1','Socorro','Bombeiros');
+insert into Meio values ('2','Apoio','Força Aérea');
+insert into Meio values ('3','Combate','Exército');
+insert into Meio values ('4','Combate','Polícia');
 
-insert into posto values ('FEUP', 'Lab1', 'DEG');
-insert into posto values ('FEUP', 'Lab2', 'DEG');
-insert into posto values ('FEUP', 'Lab3', 'DEG');
-insert into posto values ('FEUP', 'Lab4', 'DEG');
+-- MeioSocorro
 
-insert into espaco values ('Catolica', 'Central');
-insert into espaco values ('Catolica', 'DMKT');
-insert into espaco values ('Catolica', 'DG');
+insert into MeioSocorro values ('1', 'Bombeiros');
 
-insert into posto values ('Catolica', 'Sala1', 'DMKT');
-insert into posto values ('Catolica', 'Sala2', 'DMKT');
+-- MeioApoio
 
-insert into espaco values ('ISEL', 'Central');
-insert into espaco values ('ISEL', 'DEI');
-insert into espaco values ('ISEL', 'DEG');
-insert into espaco values ('ISEL', 'DEQ');
+insert into MeioApoio values ('2', 'Força Aérea');
 
-insert into oferta values ('IST', 'Central', '2016-01-01', '2016-01-31', 19.99);
-insert into oferta values ('IST', 'DEI', '2016-01-01', '2016-01-31', 49.99);
-insert into oferta values ('IST', 'DEG', '2016-01-01', '2016-01-31', 39.99);
-insert into oferta values ('IST', 'DEQ', '2016-01-01', '2016-01-31', 29.99);
-insert into oferta values ('IST', 'DEI', '2016-02-01', '2016-02-28', 49.99);
-insert into oferta values ('IST', 'DEG', '2016-02-01', '2016-02-28', 39.99);
-insert into oferta values ('IST', 'DEQ', '2016-02-01', '2016-02-28', 29.99);	
+-- MeioCombate
 
-insert into oferta values ('FEUP', 'Central', '2016-01-01', '2016-01-31', 23.99);
-insert into oferta values ('FEUP', 'DEI', '2016-01-01', '2016-01-31', 32.00);
-insert into oferta values ('FEUP', 'Lab1', '2016-01-01', '2016-01-31', 25.00);
-insert into oferta values ('FEUP', 'Lab2', '2016-01-01', '2016-01-31', 15.00);
-insert into oferta values ('FEUP', 'Lab3', '2016-01-01', '2016-01-31', 15.00);
-insert into oferta values ('FEUP', 'Lab4', '2016-01-01', '2016-01-31', 15.00);
+insert into MeioCombate values ('3', 'Exército');
+insert into MeioCombatet values ('3','Polícia');
 
-insert into oferta values ('Catolica', 'Central', '2016-01-01', '2016-01-31', 17.00);
-insert into oferta values ('Catolica', 'Sala1', '2016-01-01', '2016-01-31', 4.00);
-insert into oferta values ('Catolica', 'Sala2', '2016-01-01', '2016-01-31', 2.00);
-insert into oferta values ('Catolica', 'Central', '2016-02-01', '2016-02-28', 17.00);
+-- Transporta
 
-insert into oferta values ('ISEL', 'Central', '2016-01-01', '2016-01-31', 89.00);
-insert into oferta values ('ISEL', 'DEI', '2016-01-01', '2016-01-31', 29.00);
-insert into oferta values ('ISEL', 'DEG', '2016-01-01', '2016-01-31', 49.00);
-insert into oferta values ('ISEL', 'DEQ', '2016-01-01', '2016-01-31', 29.00);
-insert into oferta values ('ISEL', 'Central', '2016-02-01', '2016-02-28', 89.00);
-insert into oferta values ('ISEL', 'DEI', '2016-02-01', '2016-02-28', 29.00);
-insert into oferta values ('ISEL', 'DEG', '2016-02-01', '2016-02-28', 49.00);
-insert into oferta values ('ISEL', 'DEQ', '2016-02-01', '2016-02-28', 29.00);
+insert into Transporta values ('1','Bombeiros','5','001');
+insert into Transporta values ('2','Exército','10','002');
+insert into Transporta values ('3','Polícia','1','003');
 
-insert into reserva values ('2016-1');
-insert into reserva values ('2016-2');
-insert into reserva values ('2016-3');
-insert into reserva values ('2016-4');
-insert into reserva values ('2016-5');
-insert into reserva values ('2016-6');
-insert into reserva values ('2016-7');
-insert into reserva values ('2016-8');
-insert into reserva values ('2016-9');
-insert into reserva values ('2016-10');
-insert into reserva values ('2016-11');
-insert into reserva values ('2016-12');
-insert into reserva values ('2016-13');
+-- Alocado
 
-insert into aluga values ('IST', 'Central', '2016-01-01', '120456781', '2016-1');
-insert into aluga values ('IST', 'DEI', '2016-01-01', '153756357', '2016-2');
-insert into aluga values ('IST', 'DEG', '2016-01-01', '163656466', '2016-3');
-insert into aluga values ('IST', 'DEQ', '2016-01-01', '163656466', '2016-4');
-insert into aluga values ('IST', 'DEI', '2016-02-01', '120456781', '2016-5');
+insert into Alocado values ('1','Bombeiros','2','001');
+insert into Alocado values ('2','Exército','3','002');
+insert into Alocado values ('3','Polícia','1','003');
 
-insert into aluga values ('FEUP', 'Central', '2016-01-01', '183426684', '2016-6');
-insert into aluga values ('FEUP', 'Lab1', '2016-01-01', '173516575', '2016-7');
+-- Acciona
 
-insert into aluga values ('Catolica', 'Central', '2016-01-01', '193336793', '2016-8');
-insert into aluga values ('Catolica', 'Sala1', '2016-01-01', '103246782', '2016-9');
-insert into aluga values ('Catolica', 'Sala2', '2016-01-01', '103246782', '2016-10');
+insert into Acciona values ('1','Bombeiros','001');
+insert into Acciona values ('2','Exército','002');
+insert into Acciona values ('3','Polícia','003');
 
-insert into aluga values ('ISEL', 'Central', '2016-01-01', '103246782', '2016-11');
-insert into aluga values ('ISEL', 'DEI', '2016-01-01', '103246782', '2016-12');
-insert into aluga values ('ISEL', 'Central', '2016-02-01', '103246782', '2016-13');
+-- Coordenador
 
-insert into paga values ('2016-1', '2016-01-02 10:43:41', 'Cartão Crédito');
-insert into paga values ('2016-2', '2016-01-02 11:33:25', 'Cartão Crédito');
-insert into paga values ('2016-3', '2016-01-02 12:23:42', 'Paypal');
-insert into paga values ('2016-4', '2016-01-01 08:43:23', 'Cartão Crédito');
-insert into paga values ('2016-6', '2016-01-02 11:53:38', 'Cartão Crédito');
-insert into paga values ('2016-7', '2016-01-03 08:33:03', 'Paypal');
-insert into paga values ('2016-8', '2016-01-02 19:13:14', 'Cartão Crédito');
-insert into paga values ('2016-9', '2016-01-01 18:23:46', 'Paypal');
-insert into paga values ('2016-10', '2016-01-02 12:03:37', 'Cartão Crédito');
-insert into paga values ('2016-11', '2016-01-01 13:23:25', 'Paypal');
-insert into paga values ('2016-13', '2016-02-01 09:21:05', 'Cartão Crédito');
+insert into Coordenador Values ('01');
+insert into Coordenador Values ('02');
+insert into Coordenador Values ('03');
+insert into Coordenador Values ('04');
+insert into Coordenador Values ('05');
 
-insert into estado values ('2016-1', '2016-01-01 02:53:21', 'Aceite');
-insert into estado values ('2016-1', '2016-01-02 10:43:41', 'Paga');
-insert into estado values ('2016-2', '2016-01-01 01:13:15', 'Aceite');
-insert into estado values ('2016-2', '2016-01-02 11:33:25', 'Paga');
-insert into estado values ('2016-3', '2016-01-01 11:03:22', 'Aceite');
-insert into estado values ('2016-3', '2016-01-02 12:23:42', 'Paga');
-insert into estado values ('2016-4', '2016-01-01 02:13:23', 'Aceite');
-insert into estado values ('2016-4', '2016-01-01 08:43:23', 'Paga');
-insert into estado values ('2016-5', '2016-01-01 12:23:21', 'Aceite');
-insert into estado values ('2016-6', '2016-01-01 02:23:33', 'Aceite');
-insert into estado values ('2016-6', '2016-01-02 11:53:38', 'Paga');
-insert into estado values ('2016-7', '2016-01-02 01:23:03', 'Aceite');
-insert into estado values ('2016-7', '2016-01-03 08:33:03', 'Paga');
-insert into estado values ('2016-8', '2016-01-01 13:13:14', 'Aceite');
-insert into estado values ('2016-8', '2016-01-02 19:13:14', 'Paga');
-insert into estado values ('2016-9', '2016-01-01 10:13:46', 'Aceite');
-insert into estado values ('2016-9', '2016-01-01 18:23:46', 'Paga');
-insert into estado values ('2016-10', '2016-01-01 10:33:17', 'Aceite');
-insert into estado values ('2016-10', '2016-01-02 12:03:37', 'Paga');
-insert into estado values ('2016-11', '2016-01-01 11:03:15', 'Aceite');
-insert into estado values ('2016-11', '2016-01-01 13:23:25', 'Paga');
-insert into estado values ('2016-12', '2016-01-01 01:33:19', 'Aceite');
-insert into estado values ('2016-13', '2016-02-01 07:15:27', 'Aceite');
-insert into estado values ('2016-13', '2016-02-01 09:21:05', 'Paga');
+-- Audita
+
+insert into Audita Values ('01','1','Bombeiros','001','01/01/2018 10:43:41', '01/01/2018 12:00:00', '01/01/2018 10:43:41', texto);
+insert into Audita Values ('02','2','Exército','002','02/01/2018 02:53:21', '02/01/2018 04:40:00', '02/01/2018 02:53:21', texto);
+insert into Audita Values ('03','3','Polícia','003','05/01/2018 01:13:15', '05/01/2018 02:00:00', '05/01/2018 01:13:15', texto);
+insert into Audita Values ('04','1','Bombeiros','001','04/02/2018 12:23:42', '04/02/2018 16:30:00', '04/02/2018 12:23:42', texto);
+insert into Audita Values ('05','2','Exército','002','11/03/2018 09:17:00', '11/03/2018 11:30:09', '11/03/2018 09:17:09', texto);
+insert into Audita Values ('06','4','Força Aérea','004','03/04/2018 10:13:46', '03/04/2018 15:00:00', '03/04/2018 10:13:46', texto);
+
+-- Solicita
+
+insert into Solicita Values ('01','01/01/2018 10:43:41','89056','01/01/2018 10:43:41', '01/01/2018 10:43:41');
+insert into Solicita Values ('02','02/01/2018 02:53:21','89056','02/01/2018 02:53:21', '02/01/2018 02:53:21');
+insert into Solicita Values ('03','05/01/2018 01:13:15','89056','05/01/2018 01:13:15', '05/01/2018 01:13:15');
+insert into Solicita Values ('04','04/02/2018 12:23:42','89056','04/02/2018 12:23:42', '04/02/2018 12:23:42');
+insert into Solicita Values ('05','11/03/2018 09:17:00','89056','11/03/2018 09:17:00', '11/03/2018 09:17:00');
+insert into Solicita Values ('06','03/04/2018 10:13:46','89056','03/04/2018 10:13:46', '03/04/2018 10:13:46');
+
