@@ -46,9 +46,12 @@
                 $prep->execute();
             }
             if ($type == "EventoEmergencia") {
-                $prep = $db->prepare("INSERT INTO EventoEmergencia  (numTelefone, instanteChamada) VALUES(:numTelefone, :instanteChamada);");
+                $prep = $db->prepare("INSERT INTO EventoEmergencia  (numTelefone, instanteChamada, nomePessoa, moradaLocal, numProcessoSocorro) VALUES(:numTelefone, :instanteChamada, :nomePessoa, :moradaLocal, :numProcessoSocorro);");
                 $prep->bindParam(':numTelefone', $_REQUEST['numTelefone']);
                 $prep->bindParam(':instanteChamada', $_REQUEST['instanteChamada']);
+                $prep->bindParam(':nomePessoa', $_REQUEST['nomePessoa']);
+                $prep->bindParam(':moradaLocal', $_REQUEST['moradaLocal']);
+                $prep->bindParam(':numProcessoSocorro', $_REQUEST['numProcessoSocorro']);
                 $prep->execute();
 
             }
@@ -59,13 +62,14 @@
 
             }
             if ($type == "Meio") {
-                $prep = $db->prepare("INSERT INTO Meio (numMeio,nomeEntidade) VALUES(:numMeio, :nomeEntidade);");
+                $prep = $db->prepare("INSERT INTO Meio (numMeio,nomeEntidade,nomeMeio) VALUES(:numMeio, :nomeEntidade, :nomeMeio);");
                 $prep->bindParam(':numMeio', $_REQUEST['numMeio']);
                 $prep->bindParam(':nomeEntidade', $_REQUEST['nomeEntidade']);
+                $prep->bindParam(':nomeMeio', $_REQUEST['nomeMeio']);
                 $prep->execute();
             }
             if ($type == "Entidade") {
-                $prep = $db->prepare("INSERT INTO Entidade VALUES(:nomeEntidade);");
+                $prep = $db->prepare("INSERT INTO EntidadeMeio VALUES(:nomeEntidade);");
                 $prep->bindParam(':nomeEntidade', $_REQUEST['nomeEntidade']);
                 $prep->execute();
             }
@@ -132,7 +136,7 @@
         }
         echo("</table>\n");
 
-        $prep = $db->prepare("SELECT numMeio, nomeMeio, nomeEntidade FROM Meio NATURAL JOIN Entidade;");
+        $prep = $db->prepare("SELECT numMeio, nomeMeio, nomeEntidade FROM Meio;");
         $prep->execute();
         $result = $prep->fetchAll();
 
@@ -141,20 +145,20 @@
         foreach($result as $row)
         {
             echo("<tr><td>");
-            echo($row['numMeio']);
+            echo($row['nummeio']);
             echo("</td><td>");
-            echo($row['nomeMeio']);
+            echo($row['nomemeio']);
             echo("</td><td>");
-            echo($row['nomeEntidade']);
+            echo($row['nomeentidade']);
             echo("</td><td>");
-            echo("</td><td><a href=\"a.php?mode=delete&type=Meio&id={$row['numMeio']}&id2={$row['nomeEntidade']}\">delete</a></td></tr>\n");
+            echo("</td><td><a href=\"a.php?mode=delete&type=Meio&id={$row['nummeio']}&id2={$row['nomeentidade']}\">delete</a></td></tr>\n");
 
         }
         echo("</table>\n");
 
 
 
-        $prep = $db->prepare("SELECT nomeEntidade FROM Entidade ;");
+        $prep = $db->prepare("SELECT nomeEntidade FROM EntidadeMeio;");
         $prep->execute();
         $result = $prep->fetchAll();
 
@@ -163,9 +167,9 @@
         foreach($result as $row)
         {
             echo("<tr><td>");
-            echo($row['nomeEntidade']);
+            echo($row['nomeentidade']);
             echo("</td><td>");
-            echo("</td><td><a href=\"a.php?mode=delete&type=Entidade&id={$row['nomeEntidade']}\">delete</a></td></tr>\n");
+            echo("</td><td><a href=\"a.php?mode=delete&type=Entidade&id={$row['nomeentidade']}\">delete</a></td></tr>\n");
 
         }
         echo("</table>\n");
@@ -200,6 +204,9 @@
             <p><input type='hidden' name='type' value='EventoEmergencia'/></p>
             <p>numTelefone: <input type='text' name='numTelefone'/></p>
             <p>instanteChamada: <input type='text' name='instanteChamada'/></p>
+            <p>nomePessoa: <input type='text' name='nomePessoa'/></p>
+            <p>moradaLocal: <input type='text' name='moradaLocal'/></p>
+            <p>numProcessoSocorro: <input type='text' name='numProcessoSocorro'/></p>
             <p><input type='submit' value='Submit'/></p>
         </form>
         <h3>Add new ProcessoSocorro</h3>
@@ -214,6 +221,7 @@
             <p><input type='hidden' name='mode' value='add'/></p>
             <p><input type='hidden' name='type' value='Meio'/></p>
             <p>numMeio: <input type='text' name='numMeio'/></p>
+            <p>nomeMeio: <input type='text' name='nomeMeio'/></p>
             <p>nomeEntidade: <input type='text' name='nomeEntidade'/></p>
             <p><input type='submit' value='Submit'/></p>
         </form>
