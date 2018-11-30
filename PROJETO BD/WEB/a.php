@@ -4,12 +4,12 @@
     try
     {
         include 'config.php';
-        
+
         $mode = isset($_REQUEST['mode']) ? $_REQUEST['mode'] : '';
         $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : '';
         $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : '';
         $id2 = isset($_REQUEST['id2']) ? $_REQUEST['id2'] : '';
-        
+
         if ($mode == "delete") {
             if ($type == "Local") {
                 $prep = $db->prepare("DELETE FROM Local WHERE moradaLocal = :moradaLocal;");
@@ -50,7 +50,7 @@
                 $prep->bindParam(':numTelefone', $_REQUEST['numTelefone']);
                 $prep->bindParam(':instanteChamada', $_REQUEST['instanteChamada']);
                 $prep->execute();
-                
+
             }
             if ($type == "ProcessoSocorro") {
                 $prep = $db->prepare("INSERT INTO ProcessoSocorro VALUES(:numProcessoSocorro);");
@@ -73,45 +73,45 @@
 
 
 
-        
+
         $prep = $db->prepare("SELECT moradaLocal FROM Local;");
         $prep->execute();
         $result = $prep->fetchAll();
-    
+
         echo("<h3>Local</h3><table border=\"1\">\n");
         echo("<tr><td><b>moradaLocal</b></td><td></td></tr>\n");
         foreach($result as $row)
         {
             echo("<tr><td>");
-            echo($row['moradaLocal']);
-            echo("</td><td><a href=\"a.php?mode=delete&type=Local&id={$row['moradaLocal']}\">delete</a></td></tr>\n");
+            echo($row['moradalocal']);
+            echo("</td><td><a href=\"a.php?mode=delete&type=Local&id={$row['moradalocal']}\">delete</a></td></tr>\n");
         }
         echo("</table>\n");
 
 
 
 
-        
-        $prep = $db->prepare("SELECT numTelefone, instanteChamada, nomePessoa, moradaLocal, numProcessoSocorro FROM EventoEmergencia NATURAL JOIN unique;");
+
+        $prep = $db->prepare("SELECT numTelefone, instanteChamada, nomePessoa, moradaLocal, numProcessoSocorro FROM EventoEmergencia;");
         $prep->execute();
         $result = $prep->fetchAll();
-    
+
         echo("<h3>EventoEmergencia</h3><table border=\"1\">\n");
         echo("<tr><td><b>numTelefone</b></td><td><b>instanteChamada</b></td><td><b>nomePessoa</b></td><td><b>moradaLocal</b></td><td><b>numProcessoSocorro</b></td></tr>\n");
         foreach($result as $row)
         {
             echo("<tr><td>");
-            echo($row['numTelefone']);
+            echo($row['numtelefone']);
             echo("</td><td>");
-            echo($row['instanteChamada']);
+            echo($row['instantechamada']);
             echo("</td><td>");
-            echo($row['nomePessoa']);
+            echo($row['nomepessoa']);
             echo("</td><td>");
-            echo($row['moradaLocal']);
+            echo($row['moradalocal']);
             echo("</td><td>");
-            echo($row['numProcessoSocorro']);
+            echo($row['numprocessosocorro']);
             echo("</td><td>");
-            echo("</td><td><a href=\"a.php?mode=delete&type=EventoEmergencia&id={$row['numTelefone']}&id2={$row['instanteChamada']}\">delete</a></td></tr>\n");
+            echo("</td><td><a href=\"a.php?mode=delete&type=EventoEmergencia&id={$row['numtelefone']}&id2={$row['instantechamada']}\">delete</a></td></tr>\n");
         }
         echo("</table>\n");
 
@@ -126,15 +126,13 @@
         foreach($result as $row)
         {
             echo("<tr><td>");
-            echo($row['numProcessoSocorro']);
+            echo($row['numprocessosocorro']);
             echo("</td><td>");
-            echo("</td><td><a href=\"a.php?mode=delete&type=ProcessoSocorro&id={$row['numProcessoSocorro']}\">delete</a></td></tr>\n");
+            echo("</td><td><a href=\"a.php?mode=delete&type=ProcessoSocorro&id={$row['numprocessosocorro']}\">delete</a></td></tr>\n");
         }
         echo("</table>\n");
 
-
-
-        $prep = $db->prepare("SELECT numMeio, nomeMeio, nomeEntidade FROM Meio NATURAL JOIN Entidade ;");
+        $prep = $db->prepare("SELECT numMeio, nomeMeio, nomeEntidade FROM Meio NATURAL JOIN Entidade;");
         $prep->execute();
         $result = $prep->fetchAll();
 
@@ -171,8 +169,8 @@
 
         }
         echo("</table>\n");
-        
-    
+
+
         $db = null;
         $prep = null;
     }
