@@ -1,67 +1,66 @@
-// FAZ PARTE DO PROJETO ANTIFO
+#1)
+SELECT numprocessosocorro  
+FROM alocado 
+WHERE nummeio >= ALL 
+  (SELECT nummeio FROM alocado);
 
 
-#a)
-SELECT espaco.*
-FROM espaco
-LEFT JOIN aluga
-ON (espaco.codigo=aluga.codigo AND espaco.morada=aluga.morada)
-WHERE aluga.codigo IS NULL;
 
-#b)
-SELECT morada
-FROM aluga GROUP BY morada
-HAVING COUNT(morada) > (SELECT AVG(result.contador)
-                        FROM (SELECT COUNT(morada) contador
-                              FROM aluga
-                              GROUP BY morada) result);
 
-#c)
-SELECT nif, nome, telefone
-FROM (SELECT *
-      FROM user
-      NATURAL JOIN arrenda
-      NATURAL JOIN fiscaliza
-      GROUP BY nif, id) result
-GROUP BY nif
-HAVING COUNT(nif) = 1;
+#2)
 
-#d)
-SELECT  morada, codigo, SUM(pago) total_pago
-FROM (SELECT morada, codigo_espaco as codigo, data_inicio, data_fim, tarifa * (data_fim - data_inicio + 1) pago 
-      FROM aluga
-      NATURAL JOIN oferta
-      NATURAL JOIN paga
-      NATURAL JOIN posto
-      WHERE YEAR(data_inicio) = 2016 AND YEAR(data_fim) = 2016
+SELECT DISTINCT nomeentidade
+FROM entidademeio
+NATURAL JOIN eventoemergencia
+WHERE (instantechamada >= '2018/06/21 00:00:00' and instantechamada <= '2018/09/21 23:59:59')
+  and numprocessosocorro >= ALL
+    (SELECT numprocessosocorro FROM entidademeio NATURAL JOIN eventoemergencia);
 
-      UNION   ALL
-      
-      SELECT morada, codigo, data_inicio, data_fim, tarifa * (data_fim - data_inicio + 1) pago
-      FROM aluga
-      NATURAL JOIN oferta
-      NATURAL JOIN paga
-      NATURAL JOIN espaco
-      WHERE YEAR(data_inicio) = 2016 AND YEAR(data_fim) = 2016) result
-GROUP BY codigo, morada
-ORDER BY codigo;
 
-#e)
-SELECT espaco.morada, espaco.codigo
-FROM espaco
-LEFT JOIN posto
-ON (espaco.morada = posto.morada AND espaco.codigo = posto.codigo_espaco)
-LEFT JOIN (SELECT result.codigo, result.morada, estado
-           FROM estado
-           INNER JOIN (SELECT  alugavel.*, MAX(time_stamp) maximo
-                       FROM estado
-                       NATURAL JOIN aluga
-                       NATURAL JOIN oferta
-                       NATURAL JOIN alugavel
-                       GROUP BY codigo
-                       ORDER BY codigo) result
-           ON estado.time_stamp = result.maximo
-           WHERE (estado = 'Paga' OR estado = 'Aceite')) result
-ON (result.codigo = posto.codigo AND result.morada = posto.morada)
-GROUP BY espaco.codigo
-HAVING (BIT_AND(IF(ISNULL(result.estado), FALSE, TRUE)) = TRUE);
+
+
+
+#3)
+SELECT numprocessosocorro
+FROM (SELECT acciona.*
+FROM acciona
+LEFT JOIN audita ON (acciona.numprocessosocorro = audita.numprocessosocorro)
+WHERE audita.numprocessosocorro IS NULL) AS DP
+NATURAL JOIN eventoemergencia
+WHERE(instantechamada >= '2018/01/01 00:00:00' 
+  and instantechamada <= '2018/12/31 23:59:59' 
+  and moradalocal = 'Oliveira do Hospital');
+
+
+
+
+
+#4)
+SELECT COUNT(numsegmento) 
+FROM segmentovideo 
+NATURAL JOIN vigia 
+WHERE 
+  (duracao > '00:01:00' and 
+    moradalocal = 'Monchique' and 
+    datahorainiciovideo >='2018/08/01 00:00:00' and 
+    datahorainiciovideo <= '2018/08/31 23:58:59');
+
+
+
+
+#5)
+
+SELECT meiocombate.* 
+FROM meiocombate 
+LEFT JOIN meioapoio 
+ON (meiocombate.nummeio = meioapoio.nummeio) 
+WHERE meioapoio.nummeio IS NULL;
+
+
+
+#6)
+
+SELECT nomeentidade
+FROM meiocombate
+NATURAL JOIN acciona;
+

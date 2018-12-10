@@ -32,7 +32,7 @@ CREATE TABLE video (
 
 CREATE TABLE segmentoVideo (
     numSegmento int NOT NULL,
-    duracao date NOT NULL,
+    duracao time NOT NULL,
     dataHoraInicioVideo date NOT NULL,
     numCamera int NOT NULL,
     PRIMARY KEY(numSegmento),

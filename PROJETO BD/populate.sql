@@ -34,14 +34,14 @@ insert into video values ('02/05/2018 18:10:05', '02/05/2018 20:04:53', '45671')
 
 -- SegmentoVideo
 
-insert into segmentoVideo values ('7123', '01/01/2018 00:30:00' ,'01/01/2018 10:43:41', '89056');
-insert into segmentoVideo values ('4321', '02/01/2018 00:30:00' ,'02/01/2018 02:53:21', '02521');
-insert into segmentoVideo values ('8723', '05/01/2018 00:30:00' ,'05/01/2018 01:13:15', '24898');
-insert into segmentoVideo values ('3461', '02/02/2018 00:30:00' ,'02/02/2018 11:33:25', '39476');
-insert into segmentoVideo values ('6752', '04/02/2018 00:30:00' ,'04/02/2018 12:23:42', '49804');
-insert into segmentoVideo values ('3843', '10/03/2018 00:30:00' ,'10/03/2018 08:33:03', '91764');
-insert into segmentoVideo values ('2674', '03/04/2018 00:30:00' ,'03/04/2018 10:13:46', '71918');
-insert into segmentoVideo values ('1235', '02/05/2018 00:30:00' ,'02/05/2018 18:10:05', '45671');
+insert into segmentoVideo values ('7123', '00:00:20' ,'01/01/2018 10:43:41', '89056');
+insert into segmentoVideo values ('4321', '00:01:08' ,'02/01/2018 02:53:21', '02521');
+insert into segmentoVideo values ('8723', '00:00:45' ,'05/01/2018 01:13:15', '24898');
+insert into segmentoVideo values ('3461', '00:02:00' ,'02/02/2018 11:33:25', '39476');
+insert into segmentoVideo values ('6752', '00:01:00' ,'04/02/2018 12:23:42', '49804');
+insert into segmentoVideo values ('3843', '00:00:10' ,'10/03/2018 08:33:03', '91764');
+insert into segmentoVideo values ('2674', '00:50:00' ,'03/04/2018 10:13:46', '71918');
+insert into segmentoVideo values ('1235', '00:20:22' ,'02/05/2018 18:10:05', '45671');
 
 --	Vigia
 
@@ -77,12 +77,14 @@ insert into eventoEmergencia values ('923462112','03/04/2018 10:13:46','Bruno de
 insert into eventoEmergencia values ('923465234','02/05/2018 18:10:05','Susana Rosa','Sintra','001');
 
 
+
 -- Entidade Meio
 
 insert into entidadeMeio values ('Bombeiros');
 insert into entidadeMeio values ('Exército');
 insert into entidadeMeio values ('Força Aérea');
 insert into entidadeMeio values ('Polícia');
+insert into entidadeMeio values ('Comando');
 
 -- Meio
 
@@ -90,6 +92,9 @@ insert into meio values ('1','Socorro','Bombeiros');
 insert into meio values ('2','Apoio','Força Aérea');
 insert into meio values ('3','Combate','Polícia');
 insert into meio values ('4','Combate','Exército');
+insert into meio values ('5', 'Apoio','Polícia');
+insert into meio values ('6', 'Combate','Polícia');
+
 
 -- MeioSocorro
 
@@ -104,12 +109,14 @@ insert into meioApoio values ('1', 'Bombeiros');
 insert into meioApoio values ('2', 'Força Aérea');
 insert into meioApoio values ('3', 'Polícia');
 insert into meioApoio values ('4', 'Exército');
+insert into meioApoio values ('5', 'Polícia');
 
 -- MeioCombate
 insert into meioCombate values ('1', 'Bombeiros');
 insert into meioCombate values ('2', 'Força Aérea');
 insert into meioCombate values ('4', 'Exército');
 insert into meioCombate values ('3','Polícia');
+insert into meioCombate values ('6','Polícia');
 
 
 -- Transporta
@@ -125,6 +132,7 @@ insert into alocado values ('1','Bombeiros','2','001');
 insert into alocado values ('2','Força Aérea','3','002');
 insert into alocado values ('3','Polícia','1','003');
 insert into alocado values ('4','Exército','2','004');
+insert into alocado values ('5','Polícia','2','002');
 
 
 -- Acciona
