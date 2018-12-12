@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS meioCombate;
 DROP TABLE IF EXISTS meio;
 DROP TABLE IF EXISTS entidadeMeio;
 DROP TABLE IF EXISTS eventoEmergencia ;
-DROP TABLE if EXISTS processoSocorro ;
+DROP TABLE If EXISTS processoSocorro ;
 DROP TABLE IF EXISTS vigia;
 DROP TABLE IF EXISTS local;
 DROP TABLE IF EXISTS segmentoVideo;
@@ -46,6 +46,7 @@ CREATE TABLE local (
 CREATE TABLE vigia (
     moradaLocal VARCHAR(255) NOT NULL,
     numCamera int NOT NULL,
+    PRIMARY KEY (moradaLocal, numCamera),
     FOREIGN KEY(moradaLocal) REFERENCES local (moradaLocal) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY(numCamera) REFERENCES camera(numCamera) ON DELETE CASCADE ON UPDATE CASCADE);
 
@@ -102,6 +103,7 @@ CREATE TABLE transporta (
     nomeEntidade VARCHAR(25) NOT NULL,
     numVitimas int NOT NULL,
     numProcessoSocorro int NOT NULL,
+    PRIMARY KEY (numMeio, nomeEntidade, numProcessoSocorro),
     FOREIGN KEY(numMeio,nomeEntidade) REFERENCES meioSocorro(numMeio,nomeEntidade) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY(numProcessoSocorro) REFERENCES processoSocorro(numProcessoSocorro) ON DELETE CASCADE ON UPDATE CASCADE);
 
