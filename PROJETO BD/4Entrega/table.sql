@@ -6,32 +6,32 @@ DROP TABLE IF EXISTS d_evento;
 -- CRIACAO DAS TABELAS
 
 CREATE TABLE d_evento(
-	idEvento INT NOT NULL AUTO_INCREMENT,
+	idEvento SERIAL,
 	numTelefone INT NOT NULL,
 	instanteChamada date,
-	PRIMARY KEY (idEvento) ON DELETE CASCADE ON UPDATE CASCADE);
+	PRIMARY KEY(idEvento));
 
 CREATE TABLE d_meio(
-	idMeio INT NOT NULL AUTO_INCREMENT,
-	numMeio INT NOT NULL,
+	idMeio SERIAL,
+	numMeio VARCHAR(15) NOT NULL,
 	nomeMeio VARCHAR(15) NOT NULL,
 	nomeEntidade VARCHAR(25) NOT NULL,
-	tipo VARCHAR (15) NOT NULL,
-	PRIMARY KEY (idMeio) ON DELETE CASCADE ON UPDATE CASCADE);
+	tipo VARCHAR (15) ,
+	PRIMARY KEY(idMeio));
 
 CREATE TABLE d_tempo(
-	idData int NOT NULL AUTO_INCREMENT,
+	idData SERIAL ,
 	dia int NOT NULL,
 	mes int NOT NULL,
 	ano int NOT NULL,
-	PRIMARY KEY (idData) ON DELETE CASCADE ON UPDATE CASCADE);
+	PRIMARY KEY(idData));
 
 CREATE TABLE fact_table(
-	idFact INT NOT NULL AUTO_INCREMENT,
+	idFact SERIAL,
 	idEvento INT NOT NULL,
 	idMeio INT NOT NULL,
 	idData INT NOT NULL,
-	PRIMARY KEY (idFact),
+	PRIMARY KEY(idFact),
 	FOREIGN KEY (idEvento) REFERENCES d_evento(idEvento),
 	FOREIGN KEY (idMeio) REFERENCES d_meio(idMeio),
 	FOREIGN KEY (idData) REFERENCES d_tempo(idData) ON DELETE CASCADE ON UPDATE CASCADE);
@@ -46,7 +46,7 @@ INSERT INTO d_evento (numTelefone, instanteChamada)
 
 
 INSERT INTO d_meio (numMeio, nomeMeio, nomeEntidade)
-	SELECT numMeio, nomeMeio, nomeEntidade, 
+	SELECT numMeio, nomeMeio, nomeEntidade
 		FROM meio;
 
 INSERT INTO d_meio (tipo)
