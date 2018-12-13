@@ -16,7 +16,7 @@ CREATE TABLE d_meio(
 	numMeio VARCHAR(15) NOT NULL,
 	nomeMeio VARCHAR(15) NOT NULL,
 	nomeEntidade VARCHAR(25) NOT NULL,
-	tipo VARCHAR (15) ,
+	tipo VARCHAR(15)  ,
 	PRIMARY KEY(idMeio));
 
 CREATE TABLE d_tempo(
@@ -28,9 +28,9 @@ CREATE TABLE d_tempo(
 
 CREATE TABLE fact_table(
 	idFact SERIAL,
-	idEvento INT NOT NULL,
-	idMeio INT NOT NULL,
-	idData INT NOT NULL,
+	idEvento INT ,
+	idMeio INT ,
+	idData INT ,
 	PRIMARY KEY(idFact),
 	FOREIGN KEY (idEvento) REFERENCES d_evento(idEvento),
 	FOREIGN KEY (idMeio) REFERENCES d_meio(idMeio),
@@ -49,33 +49,19 @@ INSERT INTO d_meio (numMeio, nomeMeio, nomeEntidade)
 	SELECT numMeio, nomeMeio, nomeEntidade
 		FROM meio;
 
-INSERT INTO d_meio (tipo)
-	SELECT (IF ((meio.numMeio = meioCombate.numMeio ) as tipo OR 
-			   (meio.numMeio = meioApoio.numMeio) as tipo OR 
-			   (meio.numMeio = meioSocorro.numMeio) as tipo));
-
 INSERT INTO d_tempo (dia, mes, ano)
-	SELECT 	DAYOFMONTH(date) as dia,
-    		MONTH(date) as mes,
-    		YEAR(date) as ano
-    			FROM (SELECT dataHoraInicio FROM audita);
+	SELECT EXTRACT (DAY FROM instanteChamada) as dia,
+		   EXTRACT (MONTH FROM instanteChamada) as  mes,
+		   EXTRACT (YEAR FROM instanteChamada) as ano
+		   FROM eventoEmergencia;
 
-INSERT INTO fact_table(idEvento, idMeio, idData)
-	SELECT	(SELECT idEvento
-				FROM d_evento
-					WHERE d_evento.numTelefone = eventoEmergencia.numTelefone) idEvento,
-			(SELECT idMeio
-				FROM d_meio
-					WHERE d_meio.numMeio = meio.numMeio) idMeio,
-			(SELECT idData
-				FROM d_tempo
-					WHERE dia = DAYOFMONTH(data) AND mes = MONTH(data) AND ano = YEAR(data)) idData;
+INSERT INTO fact_table(idEvento, idMeio, idData)	
+		SELECT idEvento ,idMeio, idData FROM d_evento , d_meio ,d_tempo ;
 
 
 
 
 -- RESTRICOES DE INTEGRIDADE
-
 
 
 
